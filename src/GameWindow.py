@@ -298,7 +298,7 @@ class GameWindow(Thread):
 
         buttons_on_the_left = True
 
-        self.create_buttons(buttons_on_the_left)
+        self.create_buttons(buttons_on_the_left, False)
 
         if buttons_on_the_left:
             self.size = (self.width + 400, self.height)
@@ -307,21 +307,29 @@ class GameWindow(Thread):
 
         self.screen = pygame.display.set_mode(self.size)
 
-    def create_buttons(self, buttons_on_the_left):
+
+    def create_buttons(self, buttons_on_the_left, running):
         """Helper method to populate ButtonGroup."""
         # Empty ButtonGroup
         self.buttons.removal_all()
 
-        if buttons_on_the_left:
-            forward_button = Button('Forward',
-                                    GameWindow.BLACK,
+        if running:
+            if buttons_on_the_left:
+                stop_button = Button('STOP',
                                     GameWindow.WHITE,
+<<<<<<< HEAD
                                     (self.width + 140,
                                      float(self.height)/2 - 240),
+=======
+                                    GameWindow.RED,
+                                    (self.width + 140, 
+                                    float(self.height)/2 - 60),
+>>>>>>> Add Stop Button
                                     (120, 120))
 
-            self.buttons.add(forward_button)
+                self.buttons.add(stop_button)
 
+<<<<<<< HEAD
             backward_button = Button('Backward',
                                      GameWindow.BLACK,
                                      GameWindow.WHITE,
@@ -337,18 +345,56 @@ class GameWindow(Thread):
                                       (self.width + 10,
                                        float(self.height)/2 - 110),
                                       (120, 120))
+=======
+            else:
+                go_button = Button('STOP',
+                                    GameWindow.WHITE,
+                                    GameWindow.RED,
+                                    (float(self.width)/2 - 60, self.height + 140),
+                                    (120, 120))
+>>>>>>> Add Stop Button
 
-            self.buttons.add(turn_left_button)
+                self.buttons.add(go_button)
 
+<<<<<<< HEAD
             turn_right_button = Button('Turn Right',
                                        GameWindow.BLACK,
                                        GameWindow.WHITE,
                                        (self.width + 270,
                                         float(self.height)/2 - 110),
                                        (120, 120))
+=======
+        else:
+            if buttons_on_the_left:
+                forward_button = Button('Forward',
+                                        GameWindow.BLACK,
+                                        GameWindow.WHITE,
+                                        (self.width + 140,
+                                        float(self.height)/2 - 190),
+                                        (120, 120))
 
-            self.buttons.add(turn_right_button)
+                self.buttons.add(forward_button)
 
+                backward_button = Button('Backward',
+                                        GameWindow.BLACK,
+                                        GameWindow.WHITE,
+                                        (self.width + 140,
+                                        float(self.height)/2 + 70),
+                                        (120, 120))
+
+                self.buttons.add(backward_button)
+
+                turn_left_button = Button('Turn Left',
+                                        GameWindow.BLACK,
+                                        GameWindow.WHITE,
+                                        (self.width + 10,
+                                        float(self.height)/2 - 60),
+                                        (120, 120))
+>>>>>>> Add Stop Button
+
+                self.buttons.add(turn_left_button)
+
+<<<<<<< HEAD
             go_button = Button('Go',
                                GameWindow.BLACK,
                                GameWindow.WHITE,
@@ -364,80 +410,113 @@ class GameWindow(Thread):
                                   (self.width + 10,
                                    float(self.height)/2 + 20),
                                   (120, 120))
+=======
+                turn_right_button = Button('Turn Right',
+                                        GameWindow.BLACK,
+                                        GameWindow.WHITE,
+                                        (self.width + 270,
+                                            float(self.height)/2 - 60),
+                                        (120, 120))
+>>>>>>> Add Stop Button
 
-            self.buttons.add(reset_button)
+                self.buttons.add(turn_right_button)
 
+<<<<<<< HEAD
             clear_button = Button('Clear',
                                   GameWindow.BLACK,
                                   GameWindow.WHITE,
                                   (self.width + 270,
                                    float(self.height)/2 + 20),
                                   (120, 120))
+=======
+                go_button = Button('Go',
+                                GameWindow.BLACK,
+                                GameWindow.WHITE,
+                                (self.width + 140, float(self.height)/2 - 60),
+                                (120, 120))
+>>>>>>> Add Stop Button
 
-            self.buttons.add(clear_button)
+                self.buttons.add(go_button)
 
-        else:
-            forward_button = Button('Forward',
+                reset_button = Button('Reset',
                                     GameWindow.BLACK,
                                     GameWindow.WHITE,
-                                    (float(self.width)/2 - 60,
-                                     self.height + 10),
+                                    (self.width + 10, float(self.height)/2 + 70),
                                     (120, 120))
 
-            self.buttons.add(forward_button)
+                self.buttons.add(reset_button)
 
-            backward_button = Button('Backward',
-                                     GameWindow.BLACK,
-                                     GameWindow.WHITE,
-                                     (float(self.width)/2 - 60,
-                                      self.height + 270),
-                                     (120, 120))
+                clear_button = Button('Clear',
+                                    GameWindow.BLACK,
+                                    GameWindow.WHITE,
+                                    (self.width + 270,
+                                    float(self.height)/2 + 70),
+                                    (120, 120))
 
-            self.buttons.add(backward_button)
+                self.buttons.add(clear_button)
 
-            turn_left_button = Button('Turn Left',
-                                      GameWindow.BLACK,
-                                      GameWindow.WHITE,
-                                      (float(self.width)/2 - 190,
-                                       self.height + 140),
-                                      (120, 120))
+            else:
+                forward_button = Button('Forward',
+                                        GameWindow.BLACK,
+                                        GameWindow.WHITE,
+                                        (float(self.width)/2 - 60,
+                                        self.height + 10),
+                                        (120, 120))
 
-            self.buttons.add(turn_left_button)
+                self.buttons.add(forward_button)
 
-            turn_right_button = Button('Turn Right',
-                                       GameWindow.BLACK,
-                                       GameWindow.WHITE,
-                                       (float(self.width)/2 + 70,
+                backward_button = Button('Backward',
+                                        GameWindow.BLACK,
+                                        GameWindow.WHITE,
+                                        (float(self.width)/2 - 60,
+                                        self.height + 270),
+                                        (120, 120))
+
+                self.buttons.add(backward_button)
+
+                turn_left_button = Button('Turn Left',
+                                        GameWindow.BLACK,
+                                        GameWindow.WHITE,
+                                        (float(self.width)/2 - 190,
                                         self.height + 140),
-                                       (120, 120))
+                                        (120, 120))
 
-            self.buttons.add(turn_right_button)
+                self.buttons.add(turn_left_button)
 
-            go_button = Button('Go',
-                               GameWindow.BLACK,
-                               GameWindow.WHITE,
-                               (float(self.width)/2 - 60, self.height + 140),
-                               (120, 120))
+                turn_right_button = Button('Turn Right',
+                                        GameWindow.BLACK,
+                                        GameWindow.WHITE,
+                                        (float(self.width)/2 + 70,
+                                            self.height + 140),
+                                        (120, 120))
 
-            self.buttons.add(go_button)
+                self.buttons.add(turn_right_button)
 
-            reset_button = Button('Reset',
-                                  GameWindow.BLACK,
-                                  GameWindow.WHITE,
-                                  (float(self.width)/2 - 190,
-                                   self.height + 270),
-                                  (120, 120))
+                go_button = Button('Go',
+                                GameWindow.BLACK,
+                                GameWindow.WHITE,
+                                (float(self.width)/2 - 60, self.height + 140),
+                                (120, 120))
 
-            self.buttons.add(reset_button)
+                self.buttons.add(go_button)
 
-            clear_button = Button('Clear',
-                                  GameWindow.BLACK,
-                                  GameWindow.WHITE,
-                                  (float(self.width)/2 + 70,
-                                   self.height + 270),
-                                  (120, 120))
+                reset_button = Button('Reset',
+                                    GameWindow.BLACK,
+                                    GameWindow.WHITE,
+                                    (float(self.width)/2 - 190,
+                                    self.height + 270),
+                                    (120, 120))
 
-            self.buttons.add(clear_button)
+                self.buttons.add(reset_button)
+
+                clear_button = Button('Clear',
+                                    GameWindow.BLACK,
+                                    GameWindow.WHITE,
+                                    (float(self.width)/2 + 70,
+                                    self.height + 270),
+                                    (120, 120))
+
+                self.buttons.add(clear_button)
 
     def start_logic(self):
         """Start the game logic."""
@@ -485,16 +564,7 @@ class GameWindow(Thread):
 
             if event.type == pygame.KEYDOWN:
                 self.handle_key_press(event)
-
-            # If the event is a movement event
-            # Move the BeeBot.
-            if (event.type >= CustomEvent.MOVE_BEEBOT_UP and
-               event.type <= CustomEvent.MOVE_BEEBOT_RIGHT):
-                self.robot.move(event)
-                self.check_for_obstacle_collisions()
-                self.check_for_goal_collisions()
-                self.check_for_off_map()
-
+            
             # If the event is a left mouse button up
             # assume it is a button press
             if event.type == pygame.MOUSEBUTTONUP and event.button == 1:
@@ -509,6 +579,24 @@ class GameWindow(Thread):
                 button = self.buttons.get_appropriate_button(event.pos)
                 if button is not None:
                     button.swap_colours()
+
+            #if no event and self.robot.memory has not been cleared
+            #move the robot
+            elif self.robot.running:
+                self.robot.push_out_memory()
+                event = pygame.event.poll()
+
+                # flip state to input if no more instructions
+                if self.robot.memory == []:
+                    self.flip(False)
+
+                self.robot.move(event)
+                self.check_for_obstacle_collisions()
+                self.check_for_goal_collisions()
+                self.check_for_off_map()          
+
+
+
 
     def check_for_goal_collisions(self):
         """Check if the BeeBot is currently on a Goal."""
@@ -531,12 +619,21 @@ class GameWindow(Thread):
             # push a win event
             pygame.event.post(pygame.event.Event(CustomEvent.RUN_WIN))
 
+
+    def flip(self, bool):
+        """ Changes the state of robot and buttons """
+        self.robot.running = bool
+        self.create_buttons(True, bool)
+
+
     def fail_run(self):
         """Clear the event queue and push a RUN_FAIL event."""
         # clear any remaining events
         pygame.event.clear()
         # push a fail event
         pygame.event.post(pygame.event.Event(CustomEvent.RUN_FAIL))
+        # flip state to input
+        self.flip(False)
 
     def check_for_obstacle_collisions(self):
         """Check if the BeeBot is currently on a Obstacle."""
@@ -611,8 +708,15 @@ class GameWindow(Thread):
             self.robot.memory = []
 
         if button.text == 'Go':
-            # Execute the instructions stored in the BeeBot
-            self.robot.push_out_memory()
+            # flip state to running
+            self.robot.copyof = self.robot.memory
+            self.flip(True)
+
+        if button.text == 'STOP':
+            # flip state to input
+            self.robot.memory = self.robot.copyof
+            self.flip(False)
+
 
     def handle_key_press(self, event):
         """Convert key press into game logic."""
@@ -643,4 +747,6 @@ class GameWindow(Thread):
         # if the event is the G key, push stored movement
         # events into the event queue.
         if event.key == ord('g') or event.key == ord('G'):
-            self.robot.push_out_memory()
+            # flip state to running
+            self.flip(True)
+

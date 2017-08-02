@@ -317,53 +317,22 @@ class GameWindow(Thread):
             if buttons_on_the_left:
                 stop_button = Button('STOP',
                                     GameWindow.WHITE,
-<<<<<<< HEAD
-                                    (self.width + 140,
-                                     float(self.height)/2 - 240),
-=======
                                     GameWindow.RED,
                                     (self.width + 140, 
                                     float(self.height)/2 - 60),
->>>>>>> Add Stop Button
                                     (120, 120))
 
                 self.buttons.add(stop_button)
 
-<<<<<<< HEAD
-            backward_button = Button('Backward',
-                                     GameWindow.BLACK,
-                                     GameWindow.WHITE,
-                                     (self.width + 140,
-                                      float(self.height)/2 + 20),
-                                     (120, 120))
-
-            self.buttons.add(backward_button)
-
-            turn_left_button = Button('Turn Left',
-                                      GameWindow.BLACK,
-                                      GameWindow.WHITE,
-                                      (self.width + 10,
-                                       float(self.height)/2 - 110),
-                                      (120, 120))
-=======
             else:
                 go_button = Button('STOP',
                                     GameWindow.WHITE,
                                     GameWindow.RED,
                                     (float(self.width)/2 - 60, self.height + 140),
                                     (120, 120))
->>>>>>> Add Stop Button
 
                 self.buttons.add(go_button)
 
-<<<<<<< HEAD
-            turn_right_button = Button('Turn Right',
-                                       GameWindow.BLACK,
-                                       GameWindow.WHITE,
-                                       (self.width + 270,
-                                        float(self.height)/2 - 110),
-                                       (120, 120))
-=======
         else:
             if buttons_on_the_left:
                 forward_button = Button('Forward',
@@ -390,51 +359,23 @@ class GameWindow(Thread):
                                         (self.width + 10,
                                         float(self.height)/2 - 60),
                                         (120, 120))
->>>>>>> Add Stop Button
 
                 self.buttons.add(turn_left_button)
 
-<<<<<<< HEAD
-            go_button = Button('Go',
-                               GameWindow.BLACK,
-                               GameWindow.WHITE,
-                               (self.width + 140,
-                                float(self.height)/2 - 110),
-                               (120, 120))
-
-            self.buttons.add(go_button)
-
-            reset_button = Button('Reset',
-                                  GameWindow.BLACK,
-                                  GameWindow.WHITE,
-                                  (self.width + 10,
-                                   float(self.height)/2 + 20),
-                                  (120, 120))
-=======
                 turn_right_button = Button('Turn Right',
                                         GameWindow.BLACK,
                                         GameWindow.WHITE,
                                         (self.width + 270,
                                             float(self.height)/2 - 60),
                                         (120, 120))
->>>>>>> Add Stop Button
 
                 self.buttons.add(turn_right_button)
 
-<<<<<<< HEAD
-            clear_button = Button('Clear',
-                                  GameWindow.BLACK,
-                                  GameWindow.WHITE,
-                                  (self.width + 270,
-                                   float(self.height)/2 + 20),
-                                  (120, 120))
-=======
                 go_button = Button('Go',
                                 GameWindow.BLACK,
                                 GameWindow.WHITE,
                                 (self.width + 140, float(self.height)/2 - 60),
                                 (120, 120))
->>>>>>> Add Stop Button
 
                 self.buttons.add(go_button)
 
@@ -588,6 +529,8 @@ class GameWindow(Thread):
 
                 # flip state to input if no more instructions
                 if self.robot.memory == []:
+                    #keep robot memory
+                    self.robot.memory = self.robot.copyof
                     self.flip(False)
 
                 self.robot.move(event)
@@ -686,6 +629,7 @@ class GameWindow(Thread):
 
     def handle_button_press(self, button):
         """Convert button press into game logic."""
+
         if button.text == 'Forward':
             self.store_movement('Forward')
 

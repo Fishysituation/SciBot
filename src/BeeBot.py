@@ -56,7 +56,7 @@ class BeeBot(pygame.sprite.Sprite):
 
         # Store MOVE_BEEBOT_* events here.
         self.memory = []
-        self.copyof = []
+        self.index = 0
 
         self.running = False
 
@@ -83,8 +83,8 @@ class BeeBot(pygame.sprite.Sprite):
         """Act out one instruciton in the BeeBot's "memory"."""
         # if memory is not empty
         if self.memory != []:
-            pygame.event.post(self.memory[0])
-            self.memory = self.memory[1:]
+            pygame.event.post(self.memory[self.index])
+            self.index += 1
 
     def clear_memory(self):
         """Clear the BeeBot's "memory"."""

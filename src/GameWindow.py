@@ -316,11 +316,11 @@ class GameWindow(Thread):
         if running:
             if buttons_on_the_left:
                 stop_button = Button('STOP',
-                                    GameWindow.WHITE,
-                                    GameWindow.RED,
-                                    (self.width + 140, 
-                                    float(self.height)/2 - 60),
-                                    (120, 120))
+                                     GameWindow.WHITE,
+                                     GameWindow.RED,
+                                     (self.width + 140, 
+                                      float(self.height)/2 - 60),
+                                     (120, 120))
 
                 self.buttons.add(stop_button)
 
@@ -345,60 +345,54 @@ class GameWindow(Thread):
                 self.buttons.add(forward_button)
 
                 backward_button = Button('Backward',
-                                        GameWindow.BLACK,
-                                        GameWindow.WHITE,
-                                        (self.width + 140,
-                                        float(self.height)/2 + 70),
-                                        (120, 120))
+                                         GameWindow.BLACK,
+                                         GameWindow.WHITE,
+                                         (self.width + 140,
+                                          float(self.height)/2 + 70),
+                                         (120, 120))
 
                 self.buttons.add(backward_button)
 
                 turn_left_button = Button('Turn Left',
-                                        GameWindow.BLACK,
-                                        GameWindow.WHITE,
-                                        (self.width + 10,
-                                        float(self.height)/2 - 60),
-                                        (120, 120))
-<<<<<<< HEAD
+                                          GameWindow.BLACK,
+                                          GameWindow.WHITE,
+                                          (self.width + 10,
+                                           float(self.height)/2 - 60),
+                                          (120, 120))
 
                 self.buttons.add(turn_left_button)
 
-=======
-
-                self.buttons.add(turn_left_button)
-
->>>>>>> 4e8c56d98d0d19e6da9dd04dab7fd5e2ee5c4e95
                 turn_right_button = Button('Turn Right',
-                                        GameWindow.BLACK,
-                                        GameWindow.WHITE,
-                                        (self.width + 270,
+                                           GameWindow.BLACK,
+                                           GameWindow.WHITE,
+                                           (self.width + 270,
                                             float(self.height)/2 - 60),
-                                        (120, 120))
+                                           (120, 120))
 
                 self.buttons.add(turn_right_button)
 
                 go_button = Button('Go',
-                                GameWindow.BLACK,
-                                GameWindow.WHITE,
-                                (self.width + 140, float(self.height)/2 - 60),
-                                (120, 120))
+                                   GameWindow.BLACK,
+                                   GameWindow.WHITE,
+                                   (self.width + 140, float(self.height)/2 - 60),
+                                   (120, 120))
 
                 self.buttons.add(go_button)
 
                 reset_button = Button('Reset',
-                                    GameWindow.BLACK,
-                                    GameWindow.WHITE,
-                                    (self.width + 10, float(self.height)/2 + 70),
-                                    (120, 120))
+                                      GameWindow.BLACK,
+                                      GameWindow.WHITE,
+                                      (self.width + 10, float(self.height)/2 + 70),
+                                      (120, 120))
 
                 self.buttons.add(reset_button)
 
                 clear_button = Button('Clear',
-                                    GameWindow.BLACK,
-                                    GameWindow.WHITE,
-                                    (self.width + 270,
-                                    float(self.height)/2 + 70),
-                                    (120, 120))
+                                      GameWindow.BLACK,
+                                      GameWindow.WHITE,
+                                      (self.width + 270,
+                                       float(self.height)/2 + 70),
+                                      (120, 120))
 
                 self.buttons.add(clear_button)
 
@@ -407,61 +401,61 @@ class GameWindow(Thread):
                                         GameWindow.BLACK,
                                         GameWindow.WHITE,
                                         (float(self.width)/2 - 60,
-                                        self.height + 10),
+                                         self.height + 10),
                                         (120, 120))
 
                 self.buttons.add(forward_button)
 
                 backward_button = Button('Backward',
-                                        GameWindow.BLACK,
-                                        GameWindow.WHITE,
-                                        (float(self.width)/2 - 60,
-                                        self.height + 270),
-                                        (120, 120))
+                                         GameWindow.BLACK,
+                                         GameWindow.WHITE,
+                                         (float(self.width)/2 - 60,
+                                         self.height + 270),
+                                         (120, 120))
 
                 self.buttons.add(backward_button)
 
                 turn_left_button = Button('Turn Left',
-                                        GameWindow.BLACK,
-                                        GameWindow.WHITE,
-                                        (float(self.width)/2 - 190,
-                                        self.height + 140),
-                                        (120, 120))
+                                          GameWindow.BLACK,
+                                          GameWindow.WHITE,
+                                          (float(self.width)/2 - 190,
+                                           self.height + 140),
+                                          (120, 120))
 
                 self.buttons.add(turn_left_button)
 
                 turn_right_button = Button('Turn Right',
-                                        GameWindow.BLACK,
-                                        GameWindow.WHITE,
-                                        (float(self.width)/2 + 70,
+                                           GameWindow.BLACK,
+                                           GameWindow.WHITE,
+                                           (float(self.width)/2 + 70,
                                             self.height + 140),
-                                        (120, 120))
+                                           (120, 120))
 
                 self.buttons.add(turn_right_button)
 
                 go_button = Button('Go',
-                                GameWindow.BLACK,
-                                GameWindow.WHITE,
-                                (float(self.width)/2 - 60, self.height + 140),
-                                (120, 120))
+                                   GameWindow.BLACK,
+                                   GameWindow.WHITE,
+                                   (float(self.width)/2 - 60, self.height + 140),
+                                   (120, 120))
 
                 self.buttons.add(go_button)
 
                 reset_button = Button('Reset',
-                                    GameWindow.BLACK,
-                                    GameWindow.WHITE,
-                                    (float(self.width)/2 - 190,
-                                    self.height + 270),
-                                    (120, 120))
+                                      GameWindow.BLACK,
+                                      GameWindow.WHITE,
+                                      (float(self.width)/2 - 190,
+                                       self.height + 270),
+                                      (120, 120))
 
                 self.buttons.add(reset_button)
 
                 clear_button = Button('Clear',
-                                    GameWindow.BLACK,
-                                    GameWindow.WHITE,
-                                    (float(self.width)/2 + 70,
-                                    self.height + 270),
-                                    (120, 120))
+                                      GameWindow.BLACK,
+                                      GameWindow.WHITE,
+                                      (float(self.width)/2 + 70,
+                                       self.height + 270),
+                                      (120, 120))
 
                 self.buttons.add(clear_button)
 
@@ -500,6 +494,9 @@ class GameWindow(Thread):
                 self.robot.clear_memory()
                 self.board.goal_group.reset_all_goals()
 
+                self.robot.index = 0
+                self.flip(False)
+
             if event.type == CustomEvent.RUN_WIN:
                 sleep(1)
                 self.rendering_mode = RenderingMode.WIN_SCREEN
@@ -533,20 +530,17 @@ class GameWindow(Thread):
                 self.robot.push_out_memory()
                 event = pygame.event.poll()
 
-                # flip state to input if no more instructions
-                if self.robot.memory == []:
-<<<<<<< HEAD
-                    #keep robot memory
-                    self.robot.memory = self.robot.copyof
-=======
->>>>>>> 4e8c56d98d0d19e6da9dd04dab7fd5e2ee5c4e95
-                    self.flip(False)
-
                 self.robot.move(event)
                 self.check_for_obstacle_collisions()
                 self.check_for_goal_collisions()
                 self.check_for_off_map()          
 
+                # flip state to input if no more instructions to be done
+                if len(self.robot.memory) == self.robot.index:
+                    # reset current instruction index
+                    self.robot.index = 0
+                    # flip to input
+                    self.flip(False)
 
 
 
@@ -662,12 +656,12 @@ class GameWindow(Thread):
 
         if button.text == 'Go':
             # flip state to running
-            self.robot.copyof = self.robot.memory
             self.flip(True)
 
         if button.text == 'STOP':
+            # reset current instruction index
+            self.robot.index = 0
             # flip state to input
-            self.robot.memory = self.robot.copyof
             self.flip(False)
 
 

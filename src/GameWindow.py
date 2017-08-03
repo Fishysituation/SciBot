@@ -318,7 +318,7 @@ class GameWindow(Thread):
                 stop_button = Button('STOP',
                                      GameWindow.WHITE,
                                      GameWindow.RED,
-                                     (self.width + 140, 
+                                     (self.width + 140,
                                       float(self.height)/2 - 60),
                                      (120, 120))
 
@@ -326,10 +326,10 @@ class GameWindow(Thread):
 
             else:
                 go_button = Button('STOP',
-                                    GameWindow.WHITE,
-                                    GameWindow.RED,
-                                    (float(self.width)/2 - 60, self.height + 140),
-                                    (120, 120))
+                                   GameWindow.WHITE,
+                                   GameWindow.RED,
+                                   (float(self.width)/2 - 60, self.height + 140),
+                                   (120, 120))
 
                 self.buttons.add(go_button)
 
@@ -339,7 +339,7 @@ class GameWindow(Thread):
                                         GameWindow.BLACK,
                                         GameWindow.WHITE,
                                         (self.width + 140,
-                                        float(self.height)/2 - 190),
+                                         float(self.height)/2 - 190),
                                         (120, 120))
 
                 self.buttons.add(forward_button)
@@ -410,7 +410,7 @@ class GameWindow(Thread):
                                          GameWindow.BLACK,
                                          GameWindow.WHITE,
                                          (float(self.width)/2 - 60,
-                                         self.height + 270),
+                                          self.height + 270),
                                          (120, 120))
 
                 self.buttons.add(backward_button)
@@ -508,7 +508,7 @@ class GameWindow(Thread):
 
             if event.type == pygame.KEYDOWN:
                 self.handle_key_press(event)
-            
+
             # If the event is a left mouse button up
             # assume it is a button press
             if event.type == pygame.MOUSEBUTTONUP and event.button == 1:
@@ -533,7 +533,7 @@ class GameWindow(Thread):
                 self.robot.move(event)
                 self.check_for_obstacle_collisions()
                 self.check_for_goal_collisions()
-                self.check_for_off_map()          
+                self.check_for_off_map()
 
                 # flip state to input if no more instructions to be done
                 if len(self.robot.memory) == self.robot.index:
@@ -696,4 +696,3 @@ class GameWindow(Thread):
         if event.key == ord('g') or event.key == ord('G'):
             # flip state to running
             self.flip(True)
-

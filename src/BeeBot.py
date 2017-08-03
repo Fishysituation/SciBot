@@ -235,3 +235,4 @@ class BeeBot(pygame.sprite.Sprite):
         rot_rect = orig_rect.copy()
         rot_rect.center = rot_image.get_rect().center
         return rot_image.subsurface(rot_rect)
+    

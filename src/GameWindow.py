@@ -359,9 +359,15 @@ class GameWindow(Thread):
                                         (self.width + 10,
                                         float(self.height)/2 - 60),
                                         (120, 120))
+<<<<<<< HEAD
 
                 self.buttons.add(turn_left_button)
 
+=======
+
+                self.buttons.add(turn_left_button)
+
+>>>>>>> 4e8c56d98d0d19e6da9dd04dab7fd5e2ee5c4e95
                 turn_right_button = Button('Turn Right',
                                         GameWindow.BLACK,
                                         GameWindow.WHITE,
@@ -529,8 +535,11 @@ class GameWindow(Thread):
 
                 # flip state to input if no more instructions
                 if self.robot.memory == []:
+<<<<<<< HEAD
                     #keep robot memory
                     self.robot.memory = self.robot.copyof
+=======
+>>>>>>> 4e8c56d98d0d19e6da9dd04dab7fd5e2ee5c4e95
                     self.flip(False)
 
                 self.robot.move(event)

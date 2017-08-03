@@ -57,7 +57,11 @@ class Button:
                  text,  # The text to display (can be None)
                  text_colour,  # The colour of the text/polygons (can be None)
                  background_colour,  # The colour of the text (can be None)
+<<<<<<< HEAD
                  shape,  # string referring to name of Arrow Enum(can be None)
+=======
+                 shape,  # list of vectors for polygon (can be None)                 
+>>>>>>> 39ab9acf73fbe0d404648af52b47442c78ce862e
                  screen_location,  # The position on the screen
                  size):  # The size of the Button
         """Create a Button."""
@@ -71,6 +75,7 @@ class Button:
         self.font = pygame.font.SysFont("comicsansms", 22)
         self.swapped = False  # Keeps track of wether a Button is swapped
 
+<<<<<<< HEAD
         self.vertices = []
         enums = ['UP', 'LEFT', 'RIGHT', 'DOWN']
         for i in range(0, 4):
@@ -80,6 +85,8 @@ class Button:
                     self.rect.centerx,
                     self.rect.centery,
                 )
+=======
+>>>>>>> 39ab9acf73fbe0d404648af52b47442c78ce862e
 
     def get_vertex_list(self, array, centerx, centery):
         """ Return usable list of vertices for pygame.draw.polygon """
@@ -103,7 +110,11 @@ class Button:
         screen.fill(self.background_colour, rect=self.rect)
 
         #if list of vectors is empty
+<<<<<<< HEAD
         if self.vertices == []:
+=======
+        if self.shape == []:
+>>>>>>> 39ab9acf73fbe0d404648af52b47442c78ce862e
             # Draw the Button text
             text = self.font.render(self.text,
                                     True,
@@ -118,7 +129,17 @@ class Button:
             screen.blit(text, text_rect)
 
         else:
+<<<<<<< HEAD
             pygame.draw.polygon(screen, self.text_colour, self.vertices)
+=======
+            # Draw the polygon
+            vertices = self.get_vertex_list(
+                self.shape,
+                self.rect.centerx,
+                self.rect.centery
+            )
+            pygame.draw.polygon(screen, self.text_colour, vertices)
+>>>>>>> 39ab9acf73fbe0d404648af52b47442c78ce862e
 
     def swap_colours(self):
         """Swap the background and text / polygon colour of the Button."""

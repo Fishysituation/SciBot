@@ -312,72 +312,175 @@ class GameWindow(Thread):
         # Empty ButtonGroup
         self.buttons.removal_all()
 
+        # Dictionary of 'vector' arrays for arrow shapes
+        arrows = {
+            'UP' : [
+                (20, -20),
+                (0, -40),
+                (-20, -20),
+                (-10, -20),
+                (-10, 40),
+                (10, 40),
+                (10, -20),
+            ],
+
+            'LEFT' : [
+                (-20, -40),
+                (-40, -20),
+                (-20, 0),
+
+                (-20, -10),
+                (0, -10),
+                (0, 40), 
+                (20, 40),
+                (20, -30),
+                (-20, -30),
+            ],
+            
+            'RIGHT' : [
+                (20, -40),
+                (40, -20),
+                (20, 0),
+
+                (20, -10),
+                (0, -10),
+                (0, 40),
+                (-20, 40),
+                (-20, -30),
+                (20, -30),
+            ],
+                
+            'DOWN' : [
+                (20, 20),
+                (0, 40),
+                (-20, 20),
+                (-10, 20),
+                (-10, -40),
+                (10, -40),
+                (10, 20),
+            ]
+        }
+
         if buttons_on_the_left:
             forward_button = Button('Forward',
                                     GameWindow.BLACK,
                                     GameWindow.WHITE,
+<<<<<<< HEAD
                                     'UP',
+=======
+                                    arrows['UP'],
+>>>>>>> 39ab9acf73fbe0d404648af52b47442c78ce862e
                                     (self.width + 140,
-                                     float(self.height)/2 - 190),
+                                    float(self.height)/2 - 190),
                                     (120, 120))
 
             self.buttons.add(forward_button)
 
             backward_button = Button('Backward',
+<<<<<<< HEAD
                                      GameWindow.BLACK,
                                      GameWindow.WHITE,
                                      'DOWN',
                                      (self.width + 140,
                                       float(self.height)/2 + 70),
                                      (120, 120))
+=======
+                                    GameWindow.BLACK,
+                                    GameWindow.WHITE,
+                                    arrows['DOWN'],
+                                    (self.width + 140,
+                                    float(self.height)/2 + 70),
+                                    (120, 120))
+>>>>>>> 39ab9acf73fbe0d404648af52b47442c78ce862e
 
             self.buttons.add(backward_button)
 
             turn_left_button = Button('Turn Left',
+<<<<<<< HEAD
                                       GameWindow.BLACK,
                                       GameWindow.WHITE,
                                       'LEFT',
                                       (self.width + 10,
                                        float(self.height)/2 - 60),
                                       (120, 120))
+=======
+                                    GameWindow.BLACK,
+                                    GameWindow.WHITE,
+                                    arrows['LEFT'],
+                                    (self.width + 10,
+                                    float(self.height)/2 - 60),
+                                    (120, 120))
+>>>>>>> 39ab9acf73fbe0d404648af52b47442c78ce862e
 
             self.buttons.add(turn_left_button)
 
             turn_right_button = Button('Turn Right',
+<<<<<<< HEAD
                                        GameWindow.BLACK,
                                        GameWindow.WHITE,
                                        'RIGHT',
                                        (self.width + 270,
+=======
+                                    GameWindow.BLACK,
+                                    GameWindow.WHITE,
+                                    arrows['RIGHT'],
+                                    (self.width + 270,
+>>>>>>> 39ab9acf73fbe0d404648af52b47442c78ce862e
                                         float(self.height)/2 - 60),
-                                       (120, 120))
+                                    (120, 120))
 
             self.buttons.add(turn_right_button)
 
             go_button = Button('Go',
+<<<<<<< HEAD
                                GameWindow.BLACK,
                                GameWindow.WHITE,
                                '',
                                (self.width + 140, float(self.height)/2 - 60),
                                (120, 120))
+=======
+                            GameWindow.BLACK,
+                            GameWindow.WHITE,
+                            [],
+                            (self.width + 140, float(self.height)/2 - 60),
+                            (120, 120))
+>>>>>>> 39ab9acf73fbe0d404648af52b47442c78ce862e
 
             self.buttons.add(go_button)
 
             reset_button = Button('Reset',
+<<<<<<< HEAD
                                   GameWindow.BLACK,
                                   GameWindow.WHITE,
                                   '',
                                   (self.width + 10, float(self.height)/2 + 70),
                                   (120, 120))
+=======
+                                GameWindow.BLACK,
+                                GameWindow.WHITE,
+                                [],
+                                (self.width + 10, float(self.height)/2 + 70),
+                                (120, 120))
+>>>>>>> 39ab9acf73fbe0d404648af52b47442c78ce862e
 
             self.buttons.add(reset_button)
 
             clear_button = Button('Clear',
+<<<<<<< HEAD
                                   GameWindow.BLACK,
                                   GameWindow.WHITE,
                                   '',
                                   (self.width + 270,
                                    float(self.height)/2 + 70),
                                   (120, 120))
+=======
+                                GameWindow.BLACK,
+                                GameWindow.WHITE,
+                                [],
+                                (self.width + 270,
+                                float(self.height)/2 + 70),
+                                (120, 120))
+>>>>>>> 39ab9acf73fbe0d404648af52b47442c78ce862e
 
             self.buttons.add(clear_button)
 
@@ -385,69 +488,124 @@ class GameWindow(Thread):
             forward_button = Button('Forward',
                                     GameWindow.BLACK,
                                     GameWindow.WHITE,
+<<<<<<< HEAD
                                     'UP',
+=======
+                                    arrows['UP'],
+>>>>>>> 39ab9acf73fbe0d404648af52b47442c78ce862e
                                     (float(self.width)/2 - 60,
-                                     self.height + 10),
+                                    self.height + 10),
                                     (120, 120))
 
             self.buttons.add(forward_button)
 
             backward_button = Button('Backward',
+<<<<<<< HEAD
                                      GameWindow.BLACK,
                                      GameWindow.WHITE,
                                      'DOWN',
                                      (float(self.width)/2 - 60,
                                       self.height + 270),
                                      (120, 120))
+=======
+                                    GameWindow.BLACK,
+                                    GameWindow.WHITE,
+                                    arrows['DOWN'],
+                                    (float(self.width)/2 - 60,
+                                    self.height + 270),
+                                    (120, 120))
+>>>>>>> 39ab9acf73fbe0d404648af52b47442c78ce862e
 
             self.buttons.add(backward_button)
 
             turn_left_button = Button('Turn Left',
+<<<<<<< HEAD
                                       GameWindow.BLACK,
                                       GameWindow.WHITE,
                                       'LEFT',
                                       (float(self.width)/2 - 190,
                                        self.height + 140),
                                       (120, 120))
+=======
+                                    GameWindow.BLACK,
+                                    GameWindow.WHITE,
+                                    arrows['LEFT'],
+                                    (float(self.width)/2 - 190,
+                                    self.height + 140),
+                                    (120, 120))
+>>>>>>> 39ab9acf73fbe0d404648af52b47442c78ce862e
 
             self.buttons.add(turn_left_button)
 
             turn_right_button = Button('Turn Right',
+<<<<<<< HEAD
                                        GameWindow.BLACK,
                                        GameWindow.WHITE,
                                        'RIGHT',
                                        (float(self.width)/2 + 70,
+=======
+                                    GameWindow.BLACK,
+                                    GameWindow.WHITE,
+                                    arrows['RIGHT'],
+                                    (float(self.width)/2 + 70,
+>>>>>>> 39ab9acf73fbe0d404648af52b47442c78ce862e
                                         self.height + 140),
-                                       (120, 120))
+                                    (120, 120))
 
             self.buttons.add(turn_right_button)
 
             go_button = Button('Go',
+<<<<<<< HEAD
                                GameWindow.BLACK,
                                GameWindow.WHITE,
                                '',
                                (float(self.width)/2 - 60, self.height + 140),
                                (120, 120))
+=======
+                            GameWindow.BLACK,
+                            GameWindow.WHITE,
+                            [],
+                            (float(self.width)/2 - 60, self.height + 140),
+                            (120, 120))
+>>>>>>> 39ab9acf73fbe0d404648af52b47442c78ce862e
 
             self.buttons.add(go_button)
 
             reset_button = Button('Reset',
+<<<<<<< HEAD
                                   GameWindow.BLACK,
                                   GameWindow.WHITE,
                                   '',
                                   (float(self.width)/2 - 190,
                                    self.height + 270),
                                   (120, 120))
+=======
+                                GameWindow.BLACK,
+                                GameWindow.WHITE,
+                                [],
+                                (float(self.width)/2 - 190,
+                                self.height + 270),
+                                (120, 120))
+>>>>>>> 39ab9acf73fbe0d404648af52b47442c78ce862e
 
             self.buttons.add(reset_button)
 
             clear_button = Button('Clear',
+<<<<<<< HEAD
                                   GameWindow.BLACK,
                                   GameWindow.WHITE,
                                   '',
                                   (float(self.width)/2 + 70,
                                    self.height + 270),
                                   (120, 120))
+=======
+                                GameWindow.BLACK,
+                                GameWindow.WHITE,
+                                [],
+                                (float(self.width)/2 + 70,
+                                self.height + 270),
+                                (120, 120))
+>>>>>>> 39ab9acf73fbe0d404648af52b47442c78ce862e
 
 
     def start_logic(self):

@@ -12,6 +12,7 @@ import sys
 import pygame
 from src.BeeBot import BeeBot
 from src.Board import Board
+from src.Log import Log
 from src.Button import Button
 from src.ButtonGroup import ButtonGroup
 from src.CustomEvent import CustomEvent
@@ -67,6 +68,9 @@ class GameWindow(Thread):
         # Variable that holds the screen that is draw on
         self.screen = None
 
+        # Variable that holds the log
+        self.cmd = None
+
         # Used to monitor the frame rate
         self.clock = None
 
@@ -78,6 +82,9 @@ class GameWindow(Thread):
 
         # The logo to display on screen
         self.logo = None
+
+        # THe commang log to display
+        self.cmd = None
 
         # Call the superclass constructor
         Thread.__init__(self)
@@ -118,10 +125,13 @@ class GameWindow(Thread):
                 # Display the logo (if any)
                 if self.logo is not None:
                     self.screen.blit(self.logo,
-                                     (self.width + 69, self.height - 85))
+                                     (self.width + 69, self.height - (85 + self.cmd.size[1])))
 
                 # Display any Buttons
                 self.buttons.display(self.screen)
+
+                # Display the log
+                self.cmd.display(self.screen)
 
                 # Update display
                 pygame.display.update()
@@ -301,9 +311,21 @@ class GameWindow(Thread):
         self.create_buttons(buttons_on_the_left)
 
         if buttons_on_the_left:
-            self.size = (self.width + 400, self.height)
+            self.size = (self.width + 400, self.height + 90)
+            self.cmd = Log(
+                GameWindow.WHITE,
+                GameWindow.GREY,
+                (2, self.height + 2),
+                (self.width + 400 - 4, 90 - 4)
+            )
         else:
-            self.size = (self.width, self.height + 400)
+            self.size = (self.width, self.height + 400 + 90)
+            self.cmd = Log(
+                GameWindow.WHITE,
+                GameWindow.GREY,
+                (2, self.height + 400 + 2),
+                (self.width + 400 - 8, 90 - 4)
+            )
 
         self.screen = pygame.display.set_mode(self.size)
 

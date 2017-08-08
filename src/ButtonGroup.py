@@ -14,8 +14,12 @@ class ButtonGroup:
 
     def display(self, screen):
         """Draw all Button objects in the ButtonGroup."""
-        for _, button in self.buttons.items():
-            button.display(screen)
+        try:
+            for _, button in self.buttons.items():
+                button.display(screen)
+        except:
+            print("Runtime Error raised")
+            pass
 
     def get_appropriate_button(self, mouse_position):
         """Return the pressed Button."""

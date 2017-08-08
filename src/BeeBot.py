@@ -56,6 +56,9 @@ class BeeBot(pygame.sprite.Sprite):
 
         # Store MOVE_BEEBOT_* events here.
         self.memory = []
+        self.index = 0
+
+        self.running = False
 
     def move(self, event):
         """Move the BeeBot."""
@@ -77,11 +80,11 @@ class BeeBot(pygame.sprite.Sprite):
         self.memory.append(event)
 
     def push_out_memory(self):
-        """Act out the instructions in the BeeBot's "memory"."""
-        for instruction in self.memory:
-            # we use pygame's event queue because we need to check
-            # it regularly to prevent the game from crashing.
-            pygame.event.post(instruction)
+        """Act out one instruciton in the BeeBot's "memory"."""
+        # if memory is not empty
+        if self.memory != []:
+            pygame.event.post(self.memory[self.index])
+            self.index += 1
 
     def clear_memory(self):
         """Clear the BeeBot's "memory"."""
@@ -232,3 +235,4 @@ class BeeBot(pygame.sprite.Sprite):
         rot_rect = orig_rect.copy()
         rot_rect.center = rot_image.get_rect().center
         return rot_image.subsurface(rot_rect)
+    

@@ -83,7 +83,7 @@ class GameWindow(Thread):
         # The logo to display on screen
         self.logo = None
 
-        # THe commang log to display
+        # THe command log to display
         self.cmd = None
 
         # Call the superclass constructor
@@ -530,6 +530,7 @@ class GameWindow(Thread):
                 self.rendering_mode = RenderingMode.NORMAL
                 self.robot.reset_position()
                 self.robot.clear_memory()
+                self.cmd.clear_log()
                 self.board.goal_group.reset_all_goals()
 
                 self.robot.index = 0
@@ -648,6 +649,9 @@ class GameWindow(Thread):
 
     def store_movement(self, movement):
         """Store a movement in the BeeBot."""
+        # add movement to log
+        self.cmd.add_entry(movement)
+        self.cmd.draw_entry(self.screen)
         if movement == 'Forward':
             # Push a MOVE_BEEBOT_UP event
             new_event = CustomEvent.MOVE_BEEBOT_UP
@@ -691,6 +695,7 @@ class GameWindow(Thread):
         if button.text == 'Clear':
             # Remove any stored instructions
             self.robot.memory = []
+            self.cmd.clear_log()
 
         if button.text == 'Go':
             # flip state to running
@@ -712,7 +717,7 @@ class GameWindow(Thread):
             self.store_movement('Forward')
 
         if event.key == pygame.K_DOWN:
-            self.store_movement('Down')
+            self.store_movement('Backward')
 
         if event.key == pygame.K_LEFT:
             self.store_movement('Left')
@@ -729,6 +734,7 @@ class GameWindow(Thread):
         # if the event is the X key, clear the BeeBot's memory
         if event.key == ord('x') or event.key == ord('X'):
             self.robot.memory = []
+            self.cmd.clear_log()
 
         # if the event is the G key, push stored movement
         # events into the event queue.

@@ -131,7 +131,7 @@ class GameWindow(Thread):
                 self.buttons.display(self.screen)
 
                 # Display the log
-                self.cmd.display(self.screen)
+                self.cmd.display(self.screen, self.robot.running)
 
                 # Update display
                 pygame.display.update()
@@ -164,7 +164,7 @@ class GameWindow(Thread):
                 self.clock.tick(GameWindow.FRAMES_PER_SECOND)
 
             elif self.rendering_mode is RenderingMode.END_RENDERING:
-                break  # Let the renderer die
+                break  # Let the renderer dieƒ
 
     def choose_scenario(self):
         """Choose a Scenario (possibly using a PyGame UI)."""
@@ -580,6 +580,9 @@ class GameWindow(Thread):
                     self.robot.index = 0
                     # flip to input
                     self.flip(False)
+                else:
+                    # display next command in the log
+                    self.cmd.push_entry(self.robot.index)
 
 
 
@@ -606,9 +609,26 @@ class GameWindow(Thread):
 
 
     def flip(self, bool):
-        """ Changes the state of robot and buttons """
-        self.robot.running = bool
-        self.create_buttons(True, bool)
+        """ Changes the state of robot, buttons and log"""
+        if len(self.robot.memory) > 0:
+            self.robot.running = bool
+            self.create_buttons(True, bool)
+            if bool:
+                # show the first entries
+                self.cmd.current = self.cmd.commands[:self.cmd.max_entry_no]
+                # swap the colours of the fisrt entry
+                self.cmd.current[0].swap_colours()
+                # reset pointer
+                self.cmd.reset_pointer()
+            else:
+                # show the last entries
+                self.cmd.current = self.cmd.commands[-self.cmd.max_entry_no:]
+                # Unswap any swapped
+                self.cmd.unswap()
+            # move all entries to correct position
+            self.cmd.set_pos()
+        else:
+            return
 
 
     def fail_run(self):
@@ -651,7 +671,6 @@ class GameWindow(Thread):
         """Store a movement in the BeeBot."""
         # add movement to log
         self.cmd.add_entry(movement)
-        self.cmd.draw_entry(self.screen)
         if movement == 'Forward':
             # Push a MOVE_BEEBOT_UP event
             new_event = CustomEvent.MOVE_BEEBOT_UP
